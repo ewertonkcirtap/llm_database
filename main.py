@@ -9,7 +9,7 @@ from langchain.chat_models import ChatOpenAI
 # ================= CONFIGURAÇÕES =================
 
 # Caminho para a chave de autenticação do Google Cloud
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./senac-rj-5a41ad064b03.json"
+GOOGLE_APPLICATION_CREDENTIALS = st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]
 
 # Nome completo da tabela no BigQuery (formato: projeto.dataset.tabela)
 NOME_TABELA = "senac-rj.tabelas.dados_fake"
