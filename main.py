@@ -5,17 +5,24 @@ from google.cloud import bigquery
 from langchain.agents import initialize_agent, Tool, AgentExecutor
 from langchain.agents.agent_types import AgentType
 from langchain.chat_models import ChatOpenAI
+from google.oauth2 import service_account
 
 # ================= CONFIGURAÇÕES =================
 
-# Caminho para a chave de autenticação do Google Cloud
-GOOGLE_APPLICATION_CREDENTIALS = st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]
+# Carrega as credenciais do secrets
+creds_info = st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]
+
+# Cria objeto de credenciais
+credentials = service_account.Credentials.from_service_account_info(creds_info)
+
+# Inicializa o cliente BigQuery com as credenciais explícitas
+client = bigquery.Client(credentials=credentials, project=credentials.project_id)
 
 # Nome completo da tabela no BigQuery (formato: projeto.dataset.tabela)
 NOME_TABELA = "senac-rj.tabelas.dados_fake"
 
 # Inicializa cliente BigQuery
-client = bigquery.Client()
+#client = bigquery.Client()
 
 # Chave da API da OpenAI
 OPENAI_API_KEY = st.secrets["OPENAI"]["key"]
