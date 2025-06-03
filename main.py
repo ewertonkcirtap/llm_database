@@ -21,9 +21,6 @@ client = bigquery.Client(credentials=credentials, project=credentials.project_id
 # Nome completo da tabela no BigQuery (formato: projeto.dataset.tabela)
 NOME_TABELA = "senac-rj.tabelas.dados_fake"
 
-# Inicializa cliente BigQuery
-#client = bigquery.Client()
-
 # Chave da API da OpenAI
 OPENAI_API_KEY = st.secrets["OPENAI"]["key"]
 
