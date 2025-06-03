@@ -18,7 +18,7 @@ NOME_TABELA = "senac-rj.tabelas.dados_fake"
 client = bigquery.Client()
 
 # Chave da API da OpenAI
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = st.secrets["OPENAI"]["key"]
 
 # ================= FUNÇÕES =================
 
